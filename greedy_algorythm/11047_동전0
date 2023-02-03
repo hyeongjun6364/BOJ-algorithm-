@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int C[10];//C-동전의 가치 오름차순으로 주어짐
+int main() {
+	int N, K;//N-동전개수 K-맞춰야할 동전의 가치
+	
+	int count=0;
+	cin >> N;
+	cin >> K;
+	for (int i = 0; i < N; i++) {
+		cin >> C[i];
+	}
+	for (int i = N-1; i >= 0; i--) {
+		count += K / C[i];
+		K = K % C[i];
+	}
+	printf("%d", count);
+	return 0;
+}

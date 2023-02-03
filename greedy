@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+int N;
+int main() {
+	int five = 5;
+	int three = 3;
+	int result=0;
+	
+	cin >> N;
+	while (N >= 0) {
+		if (N % five == 0) {
+			result += N / five;
+			cout << result << endl;
+			return 0;
+		}
+		N -= 3;
+		result++;
+	}
+	cout << -1 << endl;
+	
+
+}

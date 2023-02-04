@@ -1,0 +1,29 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int main() {
+	int N,begin,end;
+	vector<pair<int, int>> time;
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		cin >> begin >> end;
+		time.push_back(make_pair(end,begin));//끝나는 시간 기준으로 잡음
+	}
+	sort(time.begin(), time.end());//오름차순 정렬 끝나는 시간이 제일 첫번째로
+
+	/*for (int i = 0; i < N; i++) {
+		cout << time[i].second << time[i].first<<endl;
+
+	}*/
+	int t = time[0].first;
+	int count = 1;
+	for (int i = 1; i < N; i++) {
+		if (t <= time[i].second) {
+			count++;
+			t = time[i].first;
+		}
+	}
+	cout << count;
+}

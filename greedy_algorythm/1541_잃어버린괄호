@@ -1,0 +1,36 @@
+//핵심 - 한번만 나오면 뒤에 +가 나오든 -가 나오든 다 -로 계산
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main() {
+	string input;
+	cin >> input;
+
+	
+	int sum=0;
+	string num;
+	bool flag = false;
+	for (int i = 0; i <= input.size(); i++) {
+		if (input[i] == '-' || input[i] == '+' || i==input.size()) {//부호나오면 계산
+			if (flag == false) {// - 나오기전
+				sum += stoi(num);
+				num = "";
+			}
+			else {// - 나오기후
+				sum -= stoi(num);
+				num = "";
+			}
+		}
+		else {
+			num += input[i];
+		}
+		if (input[i] == '-') {
+			flag = true;
+		}
+	}
+	cout << sum;
+	return 0;
+}
+

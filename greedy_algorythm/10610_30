@@ -1,0 +1,29 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+	string N;
+	cin >> N;
+	string str;
+	int sum = 0;
+	int checkzero = 0;
+	for (int i = 0; i < N.size(); i++) {
+		sum += N[i] - '0';//char->int 0은 아스키코드 48 
+		//ex-> 1은 아스키코드 49 
+		if (N[i] == '0') {
+			checkzero = 1;
+		}
+	}
+
+	sort(N.begin(), N.end(), greater<int>());//내림차순 정렬
+	if (sum % 3 != 0 || checkzero == 0) {
+		cout << -1;
+	}
+	else {
+		cout << N;
+	}
+}

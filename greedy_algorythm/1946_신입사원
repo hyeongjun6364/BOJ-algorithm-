@@ -1,0 +1,39 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<string>
+
+using namespace std;
+
+int main() {
+	int T;
+	cin >> T;
+	int N;
+	pair<int, int> a[100000];
+	int max;
+	int marr[21]={0,};
+	int count=0;
+	for (int i = 0; i < T; i++) {
+		cin >> N;
+		count = 0;
+		for (int j = 0; j < N; j++) {
+			cin >> a[j].first >> a[j].second;
+		}
+		sort(a, a + N);
+		max = a[0].second;
+		for (int k = 0; k < N; k++) {
+			if (max >= a[k].second) {
+				max = a[k].second;
+				count++;
+
+			}
+		}
+		marr[i] = count;
+	}
+	for (int i = 0; i < T; i++) {
+		cout << marr[i]<<endl;
+	}
+	
+	
+	
+}

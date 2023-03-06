@@ -1,0 +1,16 @@
+A,B=map(int, input().split())#input -> 문자열 인식
+r=1
+#bottom-up보단 top-down 식으로 진행 
+while(B!=A):
+    r+=1
+    temp=B
+    if B%10==1:
+        B//=10
+    elif B%2==0:
+        B//=2
+    if temp==B:
+        print(-1)
+        break
+else:
+    print(r)
+    

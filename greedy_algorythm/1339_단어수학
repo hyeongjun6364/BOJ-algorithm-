@@ -1,0 +1,22 @@
+N=int(input())
+words = []
+#dictionary 초기화
+dict={}
+
+for i in range(N):
+    words.append(input())
+for word in words:
+    zegop=len(word)-1
+    for c in word:
+        if c in dict:
+            dict[c]+=pow(10,zegop)
+        else:
+            dict[c]=pow(10,zegop)
+        zegop-=1
+#reverse=False -> 내림차순 True -> 오름차순
+dict=sorted(dict.values(),reverse=True)
+result,m=0,9
+for i in dict:
+    result+=i*m
+    m-=1
+print(result)

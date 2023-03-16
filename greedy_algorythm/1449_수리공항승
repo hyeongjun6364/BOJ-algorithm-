@@ -1,0 +1,16 @@
+N,L=map(int,input().split())
+pos=list(map(int,input().split()))
+pos.sort(reverse=False)
+start=pos[0]
+end=pos[0]+L
+count=1
+for i in range(N):
+    if start<=pos[i]<end:
+        continue
+    else:
+        count+=1
+        start=pos[i]
+        end=pos[i]+L
+
+
+print(count)
